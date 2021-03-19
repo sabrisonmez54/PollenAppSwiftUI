@@ -3,23 +3,52 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E34C14525F083B600BC1CF4 /* client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 1E34C14425F083B600BC1CF4 /* client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist */; };
 		1E6D83C025D9D752009E8C16 /* PollenAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D83BF25D9D752009E8C16 /* PollenAppSwiftUIApp.swift */; };
 		1E6D83C225D9D752009E8C16 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D83C125D9D752009E8C16 /* ContentView.swift */; };
 		1E6D83C425D9D753009E8C16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6D83C325D9D753009E8C16 /* Assets.xcassets */; };
 		1E6D83C725D9D753009E8C16 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E6D83C625D9D753009E8C16 /* Preview Assets.xcassets */; };
+		1E6D83D025D9D7AF009E8C16 /* PollenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D83CF25D9D7AF009E8C16 /* PollenInfo.swift */; };
+		1E6D83D325D9D7B3009E8C16 /* PollenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D83D225D9D7B3009E8C16 /* PollenInfoView.swift */; };
+		1E6D83D625D9D7B8009E8C16 /* pollenInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E6D83D525D9D7B8009E8C16 /* pollenInfo.json */; };
+		1E6D83DC25D9DF24009E8C16 /* PollenCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D83DB25D9DF24009E8C16 /* PollenCardView.swift */; };
+		1E6D83E425D9E55A009E8C16 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 1E6D83E325D9E55A009E8C16 /* SwiftUICharts */; };
+		1E720D9725F9D872007ECA0D /* ExcelDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9625F9D872007ECA0D /* ExcelDataList.swift */; };
+		1E720D9A25F9DF57007ECA0D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9925F9DF57007ECA0D /* NetworkManager.swift */; };
+		1E720D9D25F9E16A007ECA0D /* ExcelDataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */; };
+		1E720DA025FD6E90007ECA0D /* SheetsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9F25FD6E90007ECA0D /* SheetsListModel.swift */; };
+		1EDE9F3926027D5600E8CE26 /* NewNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */; };
+		1EDE9F412603F41300E8CE26 /* DataArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */; };
+		1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4826040C8400E8CE26 /* SheetsDataTable.xcdatamodeld */; };
+		1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4C2604139300E8CE26 /* Persistance.swift */; };
+		1EDE9F5326045ED200E8CE26 /* filterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F5226045ED200E8CE26 /* filterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1E34C14425F083B600BC1CF4 /* client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist"; sourceTree = "<group>"; };
 		1E6D83BC25D9D752009E8C16 /* PollenAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollenAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6D83BF25D9D752009E8C16 /* PollenAppSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenAppSwiftUIApp.swift; sourceTree = "<group>"; };
 		1E6D83C125D9D752009E8C16 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1E6D83C325D9D753009E8C16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E6D83C625D9D753009E8C16 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E6D83C825D9D753009E8C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E6D83CF25D9D7AF009E8C16 /* PollenInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenInfo.swift; sourceTree = "<group>"; };
+		1E6D83D225D9D7B3009E8C16 /* PollenInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollenInfoView.swift; sourceTree = "<group>"; };
+		1E6D83D525D9D7B8009E8C16 /* pollenInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pollenInfo.json; sourceTree = "<group>"; };
+		1E6D83DB25D9DF24009E8C16 /* PollenCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollenCardView.swift; sourceTree = "<group>"; };
+		1E720D9625F9D872007ECA0D /* ExcelDataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelDataList.swift; sourceTree = "<group>"; };
+		1E720D9925F9DF57007ECA0D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelDataRow.swift; sourceTree = "<group>"; };
+		1E720D9F25FD6E90007ECA0D /* SheetsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsListModel.swift; sourceTree = "<group>"; };
+		1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkManager.swift; sourceTree = "<group>"; };
+		1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArrayModel.swift; sourceTree = "<group>"; };
+		1EDE9F4926040C8400E8CE26 /* SheetsDataTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SheetsDataTable.xcdatamodel; sourceTree = "<group>"; };
+		1EDE9F4C2604139300E8CE26 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		1EDE9F5226045ED200E8CE26 /* filterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E6D83E425D9E55A009E8C16 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,10 +82,17 @@
 		1E6D83BE25D9D752009E8C16 /* PollenAppSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1E720D8E25F9D710007ECA0D /* Network */,
+				1E720D8D25F9D6FE007ECA0D /* Views */,
+				1E720D8C25F9D6F8007ECA0D /* Model */,
 				1E6D83BF25D9D752009E8C16 /* PollenAppSwiftUIApp.swift */,
-				1E6D83C125D9D752009E8C16 /* ContentView.swift */,
 				1E6D83C325D9D753009E8C16 /* Assets.xcassets */,
 				1E6D83C825D9D753009E8C16 /* Info.plist */,
+				1E34C14425F083B600BC1CF4 /* client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist */,
+				1E6D83D525D9D7B8009E8C16 /* pollenInfo.json */,
+				1E6D83DB25D9DF24009E8C16 /* PollenCardView.swift */,
+				1EDE9F4826040C8400E8CE26 /* SheetsDataTable.xcdatamodeld */,
+				1EDE9F4C2604139300E8CE26 /* Persistance.swift */,
 				1E6D83C525D9D753009E8C16 /* Preview Content */,
 			);
 			path = PollenAppSwiftUI;
@@ -67,6 +104,37 @@
 				1E6D83C625D9D753009E8C16 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1E720D8C25F9D6F8007ECA0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E6D83CF25D9D7AF009E8C16 /* PollenInfo.swift */,
+				1E720D9625F9D872007ECA0D /* ExcelDataList.swift */,
+				1E720D9F25FD6E90007ECA0D /* SheetsListModel.swift */,
+				1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1E720D8D25F9D6FE007ECA0D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E6D83D225D9D7B3009E8C16 /* PollenInfoView.swift */,
+				1E6D83C125D9D752009E8C16 /* ContentView.swift */,
+				1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */,
+				1EDE9F5226045ED200E8CE26 /* filterView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1E720D8E25F9D710007ECA0D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1E720D9925F9DF57007ECA0D /* NetworkManager.swift */,
+				1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +153,9 @@
 			dependencies = (
 			);
 			name = PollenAppSwiftUI;
+			packageProductDependencies = (
+				1E6D83E325D9E55A009E8C16 /* SwiftUICharts */,
+			);
 			productName = PollenAppSwiftUI;
 			productReference = 1E6D83BC25D9D752009E8C16 /* PollenAppSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +183,9 @@
 				Base,
 			);
 			mainGroup = 1E6D83B325D9D752009E8C16;
+			packageReferences = (
+				1E6D83E225D9E55A009E8C16 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 1E6D83BD25D9D752009E8C16 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +201,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E6D83C725D9D753009E8C16 /* Preview Assets.xcassets in Resources */,
+				1E34C14525F083B600BC1CF4 /* client_167617836893-ef4b5l9268r69gms2pf5rkrcif8nhnhk.apps.googleusercontent.com (1).plist in Resources */,
 				1E6D83C425D9D753009E8C16 /* Assets.xcassets in Resources */,
+				1E6D83D625D9D7B8009E8C16 /* pollenInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,8 +214,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E6D83D325D9D7B3009E8C16 /* PollenInfoView.swift in Sources */,
+				1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */,
+				1E6D83D025D9D7AF009E8C16 /* PollenInfo.swift in Sources */,
+				1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */,
+				1EDE9F5326045ED200E8CE26 /* filterView.swift in Sources */,
 				1E6D83C225D9D752009E8C16 /* ContentView.swift in Sources */,
+				1E720DA025FD6E90007ECA0D /* SheetsListModel.swift in Sources */,
+				1EDE9F3926027D5600E8CE26 /* NewNetworkManager.swift in Sources */,
+				1E720D9725F9D872007ECA0D /* ExcelDataList.swift in Sources */,
+				1E720D9A25F9DF57007ECA0D /* NetworkManager.swift in Sources */,
+				1EDE9F412603F41300E8CE26 /* DataArrayModel.swift in Sources */,
+				1E720D9D25F9E16A007ECA0D /* ExcelDataRow.swift in Sources */,
 				1E6D83C025D9D752009E8C16 /* PollenAppSwiftUIApp.swift in Sources */,
+				1E6D83DC25D9DF24009E8C16 /* PollenCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +416,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1E6D83E225D9E55A009E8C16 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1E6D83E325D9E55A009E8C16 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E6D83E225D9E55A009E8C16 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		1EDE9F4826040C8400E8CE26 /* SheetsDataTable.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1EDE9F4926040C8400E8CE26 /* SheetsDataTable.xcdatamodel */,
+			);
+			currentVersion = 1EDE9F4926040C8400E8CE26 /* SheetsDataTable.xcdatamodel */;
+			path = SheetsDataTable.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1E6D83B425D9D752009E8C16 /* Project object */;
 }
