@@ -23,13 +23,14 @@ struct PollenAppSwiftUIApp: App {
                     Text("Home")
                 }
 
-//                NavigationView {
-//                    WorldView()
-//                }
-//                .tabItem {
-//                    Image(systemName: "star.fill")
-//                    Text("Locations")
-//                }
+                NavigationView {
+                    FilterView()
+                        .environment(\.managedObjectContext, persistanceContainer.container.viewContext)
+                }
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
 
                 NavigationView {
                     PollenInfoView()

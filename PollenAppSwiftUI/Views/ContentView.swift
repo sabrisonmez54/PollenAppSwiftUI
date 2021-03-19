@@ -29,9 +29,9 @@ struct ContentView: View {
                 Text("Loading ...")
             } else {
                 List {
-                    ForEach((0...2)) { index in
-                        if pollen.name != nil && pollen.date != nil && pollen.count != nil  {
-                            ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count!)
+                    ForEach((0 ..< 3)) { index in
+                        if pollenLincoln[index].name != nil && pollenLincoln[index].date != nil && pollenLincoln[index].count != nil  {
+                            ExcelDataRow(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count!)
                         }
                        }
 //                    ForEach((pollenLincoln)) { pollen in

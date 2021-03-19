@@ -25,7 +25,8 @@
 		1EDE9F412603F41300E8CE26 /* DataArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */; };
 		1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4826040C8400E8CE26 /* SheetsDataTable.xcdatamodeld */; };
 		1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4C2604139300E8CE26 /* Persistance.swift */; };
-		1EDE9F5326045ED200E8CE26 /* filterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F5226045ED200E8CE26 /* filterView.swift */; };
+		1EDE9F5326045ED200E8CE26 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F5226045ED200E8CE26 /* FilterView.swift */; };
+		1EDE9F572604699600E8CE26 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F562604699600E8CE26 /* FilteredList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +49,8 @@
 		1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArrayModel.swift; sourceTree = "<group>"; };
 		1EDE9F4926040C8400E8CE26 /* SheetsDataTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SheetsDataTable.xcdatamodel; sourceTree = "<group>"; };
 		1EDE9F4C2604139300E8CE26 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
-		1EDE9F5226045ED200E8CE26 /* filterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterView.swift; sourceTree = "<group>"; };
+		1EDE9F5226045ED200E8CE26 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		1EDE9F562604699600E8CE26 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +125,8 @@
 				1E6D83D225D9D7B3009E8C16 /* PollenInfoView.swift */,
 				1E6D83C125D9D752009E8C16 /* ContentView.swift */,
 				1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */,
-				1EDE9F5226045ED200E8CE26 /* filterView.swift */,
+				1EDE9F5226045ED200E8CE26 /* FilterView.swift */,
+				1EDE9F562604699600E8CE26 /* FilteredList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,9 +219,10 @@
 			files = (
 				1E6D83D325D9D7B3009E8C16 /* PollenInfoView.swift in Sources */,
 				1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */,
+				1EDE9F572604699600E8CE26 /* FilteredList.swift in Sources */,
 				1E6D83D025D9D7AF009E8C16 /* PollenInfo.swift in Sources */,
 				1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */,
-				1EDE9F5326045ED200E8CE26 /* filterView.swift in Sources */,
+				1EDE9F5326045ED200E8CE26 /* FilterView.swift in Sources */,
 				1E6D83C225D9D752009E8C16 /* ContentView.swift in Sources */,
 				1E720DA025FD6E90007ECA0D /* SheetsListModel.swift in Sources */,
 				1EDE9F3926027D5600E8CE26 /* NewNetworkManager.swift in Sources */,
