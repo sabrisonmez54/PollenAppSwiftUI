@@ -12,4 +12,9 @@ struct DataArrayModel {
     var pollenDatesLincoln : [String]
     var pollenNamesLincoln : [String]
     var pollenCountLincoln : [String]
+    
+    var titleCalder : String
+    var pollenDatesCalder : [String]
+    var pollenNamesCalder : [String]
+    var pollenCountCalder : [String]
 }

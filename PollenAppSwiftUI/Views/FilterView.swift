@@ -16,14 +16,16 @@ struct FilterView: View {
     @FetchRequest(
         entity: PollenLincoln.entity(),
         sortDescriptors: [],
-        predicate: NSPredicate(format: "date CONTAINS[c] '2019'")
+        predicate: NSPredicate(format: "name CONTAINS[c] 'Honey Locust'")
+
     ) var pollenLincoln: FetchedResults<PollenLincoln>
-    
+   
     var body: some View {
-     
+       
         VStack {
                 List {
                     if pollenLincoln.count > 0 {
+                      
                         ForEach((0 ..< pollenLincoln.count - 1)) { index in
                             if pollenLincoln[index].name != nil && pollenLincoln[index].date != nil && pollenLincoln[index].count != nil  {
                                 ExcelDataRow(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count!)
@@ -39,6 +41,7 @@ struct FilterView: View {
      
     
     }
+ 
 }
 
 struct FilterView_Previews: PreviewProvider {

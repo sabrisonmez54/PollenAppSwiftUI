@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExcelDataRow: View {
     
-    var date : String = ""
+    var date = Date()
     var pollenName : String = ""
     var pollenCount : String = ""
 
@@ -17,7 +17,7 @@ struct ExcelDataRow: View {
             VStack {
                 Spacer()
                 HStack {
-                    Text(date)
+                    Text(date, style: .date)
                         .foregroundColor(.blue)
                         .lineLimit(nil)
                     Spacer()
