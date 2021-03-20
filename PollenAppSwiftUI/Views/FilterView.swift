@@ -11,7 +11,7 @@ import CoreData
 struct FilterView: View {
     
     @State var predicate: NSPredicate = NSPredicate(format: "name contains[c] %@", "Hickory")
-    @State private var selectedColorIndex = 0
+    @State private var selectedCenterIndex = 0
     @State private var searchText = ""
     var frameworks = ["Date", "Pollen Name", "Pollen Count"]
     @State private var selectedFrameworkIndex = 0
@@ -20,76 +20,39 @@ struct FilterView: View {
     @State private var chosenDate2 = Date()
     
     let dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            return formatter
-        }()
-
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
+    
     var body: some View {
-            VStack {
-                Picker("Favorite Color", selection: $selectedColorIndex, content: {
-                    Text("Lincoln Center").tag(0)
-                    Text("Louis Calder").tag(1)
-                }).pickerStyle(SegmentedPickerStyle())
-                if selectedColorIndex == 0 {
-                    
-                    Form {
-                        Section {
-                            Picker(selection: $selectedFrameworkIndex, label: Text("Search by:")) {
-                                ForEach(0 ..< frameworks.count) {
-                                    Text(self.frameworks[$0])
-                                }
+        VStack {
+            Picker("Favorite Color", selection: $selectedCenterIndex, content: {
+                Text("Lincoln Center").tag(0)
+                Text("Louis Calder").tag(1)
+            }).pickerStyle(SegmentedPickerStyle())
+            if selectedCenterIndex == 0 {
+                Form {
+                    Section {
+                        Picker(selection: $selectedFrameworkIndex, label: Text("Search by:")) {
+                            ForEach(0 ..< frameworks.count) {
+                                Text(self.frameworks[$0])
                             }
                         }
-                        
-                        Section{
-                            if selectedFrameworkIndex == 0 {
-                               
-                                Picker("Search date by", selection: $selectedDateSearchIndex, content: {
-                                    Text("Specific date").tag(0)
-                                    Text("Date range").tag(1)
-                                }).pickerStyle(SegmentedPickerStyle())
-                                DatePicker("from", selection: $chosenDate, displayedComponents: [.date])
-                                if selectedDateSearchIndex == 0 {
-                                    FetchedObjects(
-                                        predicate: predicateForDayUsingDate(chosenDate),
-                                        sortDescriptors: [
-                                            NSSortDescriptor(key: "date", ascending: false)
-                                        ])
-                                    { (pollenCalder: [PollenCalder]) in
-                                        List {
-                                            ForEach(pollenCalder) { pollen in
-                                                
-                                                ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                                
-                                if selectedDateSearchIndex == 1 {
-                                    DatePicker("to", selection: $chosenDate2, displayedComponents: [.date])
-                                    FetchedObjects(
-                                        predicate:  NSPredicate(format: "date >= %@ AND date < %@", argumentArray: [chosenDate2, chosenDate]),
-                                        sortDescriptors: [
-                                            NSSortDescriptor(key: "date", ascending: false)
-                                        ])
-                                    { (pollenCalder: [PollenCalder]) in
-                                        List {
-                                            ForEach(pollenCalder) { pollen in
-                                                
-                                                ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                            }
+                    }
+                    Section {
+                        if selectedFrameworkIndex == 0 {
                             
-                            if selectedFrameworkIndex == 1 {
-                                SearchBar(sText: $searchText).padding(.bottom, 0)
+                            DatePicker("from", selection: $chosenDate, displayedComponents: [.date])
+                            
+                            Picker("Search date by", selection: $selectedDateSearchIndex, content: {
+                                Text("Specific date").tag(0)
+                                Text("Date range").tag(1)
+                            }).pickerStyle(SegmentedPickerStyle())
+                            
+                            if selectedDateSearchIndex == 0 {
                                 FetchedObjects(
-                                    predicate: NSPredicate(format: "name contains[c] %@", searchText),
+                                    predicate: predicateForDayUsingDate(chosenDate),
                                     sortDescriptors: [
                                         NSSortDescriptor(key: "date", ascending: false)
                                     ])
@@ -104,12 +67,12 @@ struct FilterView: View {
                                 }
                             }
                             
-                            if selectedFrameworkIndex == 2 {
-                                SearchBar(sText: $searchText).padding(.bottom, 0)
+                            if selectedDateSearchIndex == 1 {
+                                DatePicker("to", selection: $chosenDate2, displayedComponents: [.date])
                                 FetchedObjects(
-                                    predicate: NSPredicate(format: "self.count.stringValue CONTAINS %@", searchText),
+                                    predicate:  NSPredicate(format: "date >= %@ AND date < %@", argumentArray: [chosenDate, chosenDate2]),
                                     sortDescriptors: [
-                                        NSSortDescriptor(key: "count", ascending: true)
+                                        NSSortDescriptor(key: "date", ascending: false)
                                     ])
                                 { (pollenLincoln: [PollenLincoln]) in
                                     List {
@@ -122,71 +85,79 @@ struct FilterView: View {
                                 }
                             }
                         }
-                    }
-                    
-                } else {
-                    Form {
-                        Section {
-                            Picker(selection: $selectedFrameworkIndex, label: Text("Search by")) {
-                                ForEach(0 ..< frameworks.count) {
-                                    Text(self.frameworks[$0])
-                                }
-                            }
-                        }
-                        
-                        Section {
-                            if selectedFrameworkIndex == 0 {
-                                Picker("Search date by", selection: $selectedDateSearchIndex, content: {
-                                    Text("Specific date").tag(0)
-                                    Text("Date range").tag(1)
-                                }).pickerStyle(SegmentedPickerStyle())
-                                DatePicker("from", selection: $chosenDate, displayedComponents: [.date])
-                                
-                                if selectedDateSearchIndex == 0 {
-                                    FetchedObjects(
-                                        predicate: predicateForDayUsingDate(chosenDate),
-                                        sortDescriptors: [
-                                            NSSortDescriptor(key: "date", ascending: false)
-                                        ])
-                                    { (pollenCalder: [PollenCalder]) in
-                                        List {
-                                            ForEach(pollenCalder) { pollen in
-                                                
-                                                ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                                
-                                if selectedDateSearchIndex == 1 {
-                                    DatePicker("to", selection: $chosenDate2, displayedComponents: [.date])
-                                    FetchedObjects(
-                                        predicate:  NSPredicate(format: "date >= %@ AND date < %@", argumentArray: [chosenDate2, chosenDate]),
-                                        sortDescriptors: [
-                                            NSSortDescriptor(key: "date", ascending: false)
-                                        ])
-                                    { (pollenCalder: [PollenCalder]) in
-                                        List {
-                                            ForEach(pollenCalder) { pollen in
-                                                
-                                                ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
-                                                
-                                            }
-                                        }
-                                    }
-                                }
-                                
-                               
 
+                 
+                        
+                        if selectedFrameworkIndex == 1 {
+                            SearchBar(sText: $searchText).padding(.bottom, 0)
+                            FetchedObjects(
+                                predicate: NSPredicate(format: "name contains[c] %@", searchText),
+                                sortDescriptors: [
+                                    NSSortDescriptor(key: "date", ascending: false)
+                                ])
+                            { (pollenLincoln: [PollenLincoln]) in
+                                List {
+                                    ForEach(pollenLincoln) { pollen in
                                         
-                                
-
+                                        ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
+                                        
+                                    }
+                                }
                             }
-                            if selectedFrameworkIndex == 1 {
-                                SearchBar(sText: $searchText)
+                        }
+                        if selectedFrameworkIndex == 2 {
+                            SearchBar(sText: $searchText).padding(.bottom, 0)
+                            FetchedObjects(
+                                predicate: NSPredicate(format: "self.count.stringValue CONTAINS %@", searchText),
+                                sortDescriptors: [
+                                    NSSortDescriptor(key: "count", ascending: true)
+                                ])
+                            { (pollenLincoln: [PollenLincoln]) in
+                                List {
+                                    ForEach(pollenLincoln) { pollen in
+                                        
+                                        ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                }
+                
+                
+                
+                
+                
+                
+                
+            } else {
+                
+                
+                
+                Form {
+                    Section {
+                        Picker(selection: $selectedFrameworkIndex, label: Text("Search by")) {
+                            ForEach(0 ..< frameworks.count) {
+                                Text(self.frameworks[$0])
+                            }
+                        }
+                    }
+                    Section {
+                        if selectedFrameworkIndex == 0 {
+                            
+                            DatePicker("from", selection: $chosenDate, displayedComponents: [.date])
+                            
+                            Picker("Search date by", selection: $selectedDateSearchIndex, content: {
+                                Text("Specific date").tag(0)
+                                Text("Date range").tag(1)
+                            }).pickerStyle(SegmentedPickerStyle())
+                            
+                            if selectedDateSearchIndex == 0 {
                                 FetchedObjects(
-                                    predicate: NSPredicate(format: "name contains[c] %@", searchText),
+                                    predicate: predicateForDayUsingDate(chosenDate),
                                     sortDescriptors: [
                                         NSSortDescriptor(key: "date", ascending: false)
                                     ])
@@ -200,12 +171,13 @@ struct FilterView: View {
                                     }
                                 }
                             }
-                            if selectedFrameworkIndex == 2 {
-                                SearchBar(sText: $searchText)
+                            
+                            if selectedDateSearchIndex == 1 {
+                                DatePicker("to", selection: $chosenDate2, displayedComponents: [.date])
                                 FetchedObjects(
-                                    predicate: NSPredicate(format: "self.count.stringValue CONTAINS %@", searchText),
+                                    predicate:  NSPredicate(format: "date >= %@ AND date < %@", argumentArray: [chosenDate, chosenDate2]),
                                     sortDescriptors: [
-                                        NSSortDescriptor(key: "count", ascending: true)
+                                        NSSortDescriptor(key: "date", ascending: false)
                                     ])
                                 { (pollenCalder: [PollenCalder]) in
                                     List {
@@ -216,18 +188,43 @@ struct FilterView: View {
                                         }
                                     }
                                 }
-                            }                        }
-                    }
-                    
-                    //                    Button(action: {
-                    //                        self.predicate = NSPredicate(format: "name contains[c] %@", "Unidentified pollen")
-                    //                    }) {
-                    //                        Text("Find Unidentified pollen")
-                    //                    }
-                    
-                    
-                    
-                    
+                            }
+                        }
+                        if selectedFrameworkIndex == 1 {
+                            SearchBar(sText: $searchText)
+                            FetchedObjects(
+                                predicate: NSPredicate(format: "name contains[c] %@", searchText),
+                                sortDescriptors: [
+                                    NSSortDescriptor(key: "date", ascending: false)
+                                ])
+                            { (pollenCalder: [PollenCalder]) in
+                                List {
+                                    ForEach(pollenCalder) { pollen in
+                                        
+                                        ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        if selectedFrameworkIndex == 2 {
+                            SearchBar(sText: $searchText)
+                            FetchedObjects(
+                                predicate: NSPredicate(format: "self.count.stringValue CONTAINS %@", searchText),
+                                sortDescriptors: [
+                                    NSSortDescriptor(key: "count", ascending: true)
+                                ])
+                            { (pollenCalder: [PollenCalder]) in
+                                List {
+                                    ForEach(pollenCalder) { pollen in
+                                        
+                                        ExcelDataRow(date: pollen.date!, pollenName: pollen.name!, pollenCount: pollen.count)
+                                        
+                                    }
+                                }
+                            }
+                        }                        }
+                }
             }
         }.navigationTitle("Search Data")
     }
