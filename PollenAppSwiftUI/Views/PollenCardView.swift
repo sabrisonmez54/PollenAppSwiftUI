@@ -14,7 +14,7 @@ struct PollenCardView: View {
     @State private var showDetail = false
     var date = Date()
     var pollenName : String = ""
-    var pollenCount : String = ""
+    var pollenCount : Double = 0.0
     var image = ""
     
     var body: some View {
@@ -29,11 +29,11 @@ struct PollenCardView: View {
             VStack(alignment: .leading) {
                 Spacer()
                 Text(date, style: .date)
-                    .font(.system(size: 23, weight: .bold, design: .default))
+                    .font(.system(size: 22, weight: .bold, design: .default))
                     .foregroundColor(Color(.secondaryLabel))
                     .padding(.leading, 10)
                 HStack{
-                    Text(pollenCount).font(.system(size: 38, weight: .bold, design: .default))
+                    Text("\(pollenCount, specifier: "%.1f") pcm").font(.system(size: 32, weight: .bold, design: .default))
                         .foregroundColor(Color(.label))
                         .padding(.leading, 10)
                     
@@ -55,7 +55,7 @@ struct PollenCardView: View {
                         .padding(.leading, 10)
                         .padding(.top, 5)
                     Text(pollenName)
-                            .font(.system(size: 26, weight: .bold, design: .default))
+                            .font(.system(size: 22, weight: .bold, design: .default))
                             .foregroundColor(Color(.label))
                             .padding(.leading, 10)
                             .padding(.top, 5)
@@ -81,7 +81,7 @@ struct PollenCardView: View {
 struct DetailView: View {
     var date = Date()
     var pollenName : String = ""
-    var pollenCount : String = ""
+    var pollenCount : Double = 0.0
     var image = ""
     
     var body: some View {
@@ -93,7 +93,7 @@ struct DetailView: View {
                     
             Text(date, style: .date)
             Text(pollenName)
-            Text(pollenCount)
+            Text("\(pollenCount, specifier: "%.2f") pcm")
             Spacer()
         }
         .navigationTitle("Detail View")

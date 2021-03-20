@@ -22,12 +22,11 @@
 		1E720D9A25F9DF57007ECA0D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9925F9DF57007ECA0D /* NetworkManager.swift */; };
 		1E720D9D25F9E16A007ECA0D /* ExcelDataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */; };
 		1E720DA025FD6E90007ECA0D /* SheetsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E720D9F25FD6E90007ECA0D /* SheetsListModel.swift */; };
-		1EDE9F3926027D5600E8CE26 /* NewNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */; };
 		1EDE9F412603F41300E8CE26 /* DataArrayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */; };
 		1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4826040C8400E8CE26 /* SheetsDataTable.xcdatamodeld */; };
 		1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F4C2604139300E8CE26 /* Persistance.swift */; };
 		1EDE9F5326045ED200E8CE26 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F5226045ED200E8CE26 /* FilterView.swift */; };
-		1EDE9F572604699600E8CE26 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F562604699600E8CE26 /* FilteredList.swift */; };
+		1EDE9F572604699600E8CE26 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE9F562604699600E8CE26 /* FetchedObjects.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,12 +46,11 @@
 		1E720D9925F9DF57007ECA0D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcelDataRow.swift; sourceTree = "<group>"; };
 		1E720D9F25FD6E90007ECA0D /* SheetsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsListModel.swift; sourceTree = "<group>"; };
-		1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNetworkManager.swift; sourceTree = "<group>"; };
 		1EDE9F402603F41300E8CE26 /* DataArrayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataArrayModel.swift; sourceTree = "<group>"; };
 		1EDE9F4926040C8400E8CE26 /* SheetsDataTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SheetsDataTable.xcdatamodel; sourceTree = "<group>"; };
 		1EDE9F4C2604139300E8CE26 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		1EDE9F5226045ED200E8CE26 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		1EDE9F562604699600E8CE26 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
+		1EDE9F562604699600E8CE26 /* FetchedObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 				1E6D83C125D9D752009E8C16 /* ContentView.swift */,
 				1E720D9C25F9E16A007ECA0D /* ExcelDataRow.swift */,
 				1EDE9F5226045ED200E8CE26 /* FilterView.swift */,
-				1EDE9F562604699600E8CE26 /* FilteredList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,8 +142,8 @@
 		1E720D8E25F9D710007ECA0D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1EDE9F562604699600E8CE26 /* FetchedObjects.swift */,
 				1E720D9925F9DF57007ECA0D /* NetworkManager.swift */,
-				1EDE9F3826027D5600E8CE26 /* NewNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -231,13 +228,12 @@
 			files = (
 				1E6D83D325D9D7B3009E8C16 /* PollenInfoView.swift in Sources */,
 				1EDE9F4D2604139300E8CE26 /* Persistance.swift in Sources */,
-				1EDE9F572604699600E8CE26 /* FilteredList.swift in Sources */,
+				1EDE9F572604699600E8CE26 /* FetchedObjects.swift in Sources */,
 				1E6D83D025D9D7AF009E8C16 /* PollenInfo.swift in Sources */,
 				1EDE9F4A26040C8400E8CE26 /* SheetsDataTable.xcdatamodeld in Sources */,
 				1EDE9F5326045ED200E8CE26 /* FilterView.swift in Sources */,
 				1E6D83C225D9D752009E8C16 /* ContentView.swift in Sources */,
 				1E720DA025FD6E90007ECA0D /* SheetsListModel.swift in Sources */,
-				1EDE9F3926027D5600E8CE26 /* NewNetworkManager.swift in Sources */,
 				1E720D9725F9D872007ECA0D /* ExcelDataList.swift in Sources */,
 				1E720D9A25F9DF57007ECA0D /* NetworkManager.swift in Sources */,
 				1EDE9F412603F41300E8CE26 /* DataArrayModel.swift in Sources */,

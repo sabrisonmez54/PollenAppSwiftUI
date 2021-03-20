@@ -30,14 +30,14 @@ struct ContentView: View {
                 ScrollView {
                     Text(networkManager.sheetsData.titleLincoln).font(.headline)
                     ForEach((0 ..< 1)) { index in
-                        if pollenLincoln[index].name != nil && pollenLincoln[index].date != nil && pollenLincoln[index].count != nil  {
-                            PollenCardView(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count!, image: "pollen-unsplash")
+                        if pollenLincoln[index].name != nil && pollenLincoln[index].date != nil {
+                            PollenCardView(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count, image: "pollen-unsplash")
                         }
                     }
                     Text(networkManager.sheetsData.titleCalder).font(.headline)
                     ForEach((0 ..< 1)) { index in
-                        if pollenCalder[index].name != nil && pollenCalder[index].date != nil && pollenCalder[index].count != nil  {
-                            PollenCardView(date: pollenCalder[index].date!, pollenName: pollenCalder[index].name!, pollenCount: pollenCalder[index].count!, image: "oak-pollen")
+                        if pollenCalder[index].name != nil && pollenCalder[index].date != nil {
+                            PollenCardView(date: pollenCalder[index].date!, pollenName: pollenCalder[index].name!, pollenCount: pollenCalder[index].count, image: "oak-pollen")
                         }
                     }
                 }
@@ -58,27 +58,53 @@ struct ContentView: View {
                 for index in 0...networkManager.sheetsData.pollenDatesLincoln.count - 1{
                     if(networkManager.sheetsData.pollenDatesLincoln[index] != "-") {
                         let dateString = networkManager.sheetsData.pollenDatesLincoln[index]
-                                // Create Date Formatter
+                        // Create Date Formatter
                         let dateFormatter = DateFormatter()
                         // Set Date Format
                         dateFormatter.dateFormat = "MM/dd/yy"
-
-                                    // Convert String to Date
+                        // Convert String to Date
                         let dated = dateFormatter.date(from: dateString)
-                        addDataLincoln(date: dated!  , name: networkManager.sheetsData.pollenNamesLincoln[index], count: networkManager.sheetsData.pollenCountLincoln[index])
+                        
+                        let pollenCountString = networkManager.sheetsData.pollenCountLincoln[index]
+                        var pollenCountDouble = 0.0
+                        if pollenCountString.contains("pcm") {
+                            let replaced = pollenCountString.replacingOccurrences(of: "pcm", with: "")
+                            var trimmed = replaced
+                            if !replaced.contains("."){
+                                trimmed = replaced.trimmingCharacters(in: .whitespacesAndNewlines)
+                                trimmed.append(".0")
+                            }
+                            pollenCountDouble += Double(trimmed) ?? 0.0
+                            
+                        }
+                        
+                        
+                        addDataLincoln(date: dated!  , name: networkManager.sheetsData.pollenNamesLincoln[index], count: pollenCountDouble)
                     }
                 }
                 for index in 0...networkManager.sheetsData.pollenDatesCalder.count - 1{
                     if(networkManager.sheetsData.pollenDatesCalder[index] != "-") {
                         let dateString = networkManager.sheetsData.pollenDatesCalder[index]
-                                // Create Date Formatter
+                        // Create Date Formatter
                         let dateFormatter = DateFormatter()
                         // Set Date Format
                         dateFormatter.dateFormat = "MM/dd/yy"
-
-                                    // Convert String to Date
+                        // Convert String to Date
                         let dated = dateFormatter.date(from: dateString)
-                        addDataCalder(date: dated!  , name: networkManager.sheetsData.pollenNamesCalder[index], count: networkManager.sheetsData.pollenCountCalder[index])
+                        
+                        let pollenCountString = networkManager.sheetsData.pollenCountCalder[index]
+                        var pollenCountDouble = 0.0
+                        if pollenCountString.contains("pcm") {
+                            let replaced = pollenCountString.replacingOccurrences(of: "pcm", with: "")
+                            var trimmed = replaced
+                            if !replaced.contains("."){
+                                trimmed = replaced.trimmingCharacters(in: .whitespacesAndNewlines)
+                                trimmed.append(".0")
+                            }
+                            pollenCountDouble += Double(trimmed) ?? 0.0
+                        }
+                        
+                        addDataCalder(date: dated!  , name: networkManager.sheetsData.pollenNamesCalder[index], count: pollenCountDouble)
                     }
                 }
             }) { (error) in
@@ -97,7 +123,7 @@ struct ContentView: View {
         }
     }
     
-    private func addDataLincoln(date:Date, name: String, count:String) {
+    private func addDataLincoln(date:Date, name: String, count:Double) {
         withAnimation {
             let newData = PollenLincoln(context: viewContext)
             newData.date = date
@@ -107,7 +133,7 @@ struct ContentView: View {
         }
        
     }
-    private func addDataCalder(date:Date, name: String, count:String) {
+    private func addDataCalder(date:Date, name: String, count:Double) {
         withAnimation() {
             let newData = PollenCalder(context: viewContext)
             newData.date = date

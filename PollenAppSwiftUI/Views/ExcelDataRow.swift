@@ -11,7 +11,7 @@ struct ExcelDataRow: View {
     
     var date = Date()
     var pollenName : String = ""
-    var pollenCount : String = ""
+    var pollenCount : Double = 0.0
 
     var body: some View {
             VStack {
@@ -24,7 +24,7 @@ struct ExcelDataRow: View {
                 }
              
                 HStack {
-                    Text("Pollen Count: \(pollenCount)")
+                    Text("Pollen Count: \(pollenCount, specifier: "%.1f") pcm")
                         .foregroundColor(.gray)
                         .lineLimit(nil)
                     Spacer()
