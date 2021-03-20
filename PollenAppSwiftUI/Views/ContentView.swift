@@ -11,7 +11,6 @@ import CoreData
 struct ContentView: View {
     @State var didAppear = false
     @State var appearCount = 0
-    @State var chartData: [Double] = [0, 5, 6, 2, 13, 4, 3, 6]
     @ObservedObject var networkManager = NetworkManager()
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(entity: PollenLincoln.entity(),sortDescriptors: [])
@@ -22,26 +21,23 @@ struct ContentView: View {
     
     
     var body: some View {
-        //        ForEach((0...networkManager.sheetsData.pollenDatesLincoln.count - 1 ), id: \.self) {
-        //            if(networkManager.sheetsData.pollenDatesLincoln[$0] != "-"){
-        //                addData(date: networkManager.sheetsData.pollenDatesLincoln[$0], name: networkManager.sheetsData.pollenNamesLincoln[$0], count: networkManager.sheetsData.pollenCountLincoln[$0])
-        //               }
-        //            }
         VStack {
             if networkManager.loading {
-                Text("Loading ...")
+                ProgressView("Loading Data…")
+                    .progressViewStyle(CircularProgressViewStyle())
+                    
             } else {
-                List {
-                    Text(networkManager.sheetsData.titleLincoln)
-                    ForEach((0 ..< 3)) { index in
+                ScrollView {
+                    Text(networkManager.sheetsData.titleLincoln).font(.headline)
+                    ForEach((0 ..< 1)) { index in
                         if pollenLincoln[index].name != nil && pollenLincoln[index].date != nil && pollenLincoln[index].count != nil  {
-                            ExcelDataRow(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count!)
+                            PollenCardView(date: pollenLincoln[index].date!, pollenName: pollenLincoln[index].name!, pollenCount: pollenLincoln[index].count!, image: "pollen-unsplash")
                         }
                     }
-                    Text(networkManager.sheetsData.titleCalder)
-                    ForEach((0 ..< 3)) { index in
+                    Text(networkManager.sheetsData.titleCalder).font(.headline)
+                    ForEach((0 ..< 1)) { index in
                         if pollenCalder[index].name != nil && pollenCalder[index].date != nil && pollenCalder[index].count != nil  {
-                            ExcelDataRow(date: pollenCalder[index].date!, pollenName: pollenCalder[index].name!, pollenCount: pollenCalder[index].count!)
+                            PollenCardView(date: pollenCalder[index].date!, pollenName: pollenCalder[index].name!, pollenCount: pollenCalder[index].count!, image: "oak-pollen")
                         }
                     }
                 }
@@ -51,7 +47,6 @@ struct ContentView: View {
             }
         }.navigationTitle("Home")
         .onAppear(perform: onLoad)
-        
     }
     
     func onLoad() {
@@ -103,21 +98,26 @@ struct ContentView: View {
     }
     
     private func addDataLincoln(date:Date, name: String, count:String) {
-        let newData = PollenLincoln(context: viewContext)
-        newData.date = date
-        newData.name = name
-        newData.count = count
-        saveContext()
+        withAnimation {
+            let newData = PollenLincoln(context: viewContext)
+            newData.date = date
+            newData.name = name
+            newData.count = count
+            saveContext()
+        }
+       
     }
     private func addDataCalder(date:Date, name: String, count:String) {
-        let newData = PollenCalder(context: viewContext)
-        newData.date = date
-        newData.name = name
-        newData.count = count
-        saveContext()
+        withAnimation() {
+            let newData = PollenCalder(context: viewContext)
+            newData.date = date
+            newData.name = name
+            newData.count = count
+            saveContext()
+        }
+       
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
